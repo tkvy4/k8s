@@ -1,1 +1,12 @@
-
+# playbook.yml
+---
+- name: Générer le script Terraform
+  hosts: localhost
+  gather_facts: false
+  vars_files:
+    - vm_vars_template.yaml
+  tasks:
+    - name: Générer le script Terraform à partir du modèle
+      template:
+        src: vm_terraform_template.tf.j2
+        dest: {{ terraform_vars.vm_name }}.tf
