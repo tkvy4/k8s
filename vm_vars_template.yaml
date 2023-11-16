@@ -1,7 +1,0 @@
-# vars.yml
-terraform_vars:
-  vm_name: ""
-  vm_memory: ""
-  vm_cpu: ""
-  network_type: ""
-  disk_size: ""
