@@ -1,0 +1,22 @@
+provider "vmware_workstation" {
+  workstation_path = "C:\\Path\\To\\Your\\VMs"  # Remplacez par le chemin de votre installation de VMware Workstation
+}
+
+resource "vmware_workstation_vm" "example" {
+  name   = "{{ terraform_vars.vm_name }}"
+  memory = "{{ terraform_vars.vm_memory }}"
+  cpus   = "{{ terraform_vars.vm_cpu }}"
+
+  network_interface {
+    type        = "{{ terraform_vars.network_type }}"
+    auto_bridge = true
+  }
+
+  disk {
+    size = "{{ terraform_vars.disk_size }}"
+  }
+
+  iso {
+    source = "C:\\Path\\To\\Your\\ISO\\file.iso"  # Remplacez par le chemin de votre fichier ISO
+  }
+}
